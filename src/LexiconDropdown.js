@@ -1,5 +1,5 @@
 import Component from 'metal-component';
-import core from 'metal/src/core';
+import core from 'metal';
 import MetalDropdown from 'metal-dropdown';
 import Soy from 'metal-soy';
 
