@@ -72,7 +72,7 @@
  */
 {template .dropdownItems}
 	{foreach $item in $items}
-		{delcall LexiconDropdown.Item variant="$item.type" data="all" }
+		{delcall LexiconDropdown.item variant="$item.type" data="all" }
 			{param item: $item /}
 		{/delcall}
 	{/foreach}
@@ -82,7 +82,7 @@
  *
  * @param item
  */
-{deltemplate LexiconDropdown.Item}
+{deltemplate LexiconDropdown.item}
 	<li class="{$item.active ? 'active' : ''}{$item.disabled ? 'disabled' : ''}{$item.cssClass ? ' ' + $item.cssClass : ''}">
 		<a class="{$item.linkCssClass ?: ''}" href="{$item.href}">{$item.label}</a>
 	</li>
@@ -92,7 +92,7 @@
  *
  * @param item
  */
-{deltemplate LexiconDropdown.Item variant="'divider'"}
+{deltemplate LexiconDropdown.item variant="'divider'"}
 	<li class="divider{$item.cssClass ? ' ' + $item.cssClass : ''}" role="presentation"></li>
 {/deltemplate}
 
@@ -100,7 +100,7 @@
  *
  * @param item
  */
-{deltemplate LexiconDropdown.Item variant="'header'"}
+{deltemplate LexiconDropdown.item variant="'header'"}
 	<li class="dropdown-header{$item.cssClass ? ' ' + $item.cssClass : ''}" role="presentation">{$item.label}</li>
 {/deltemplate}
 
@@ -108,7 +108,7 @@
  *
  * @param item
  */
-{deltemplate LexiconDropdown.Item variant="'scroller'"}
+{deltemplate LexiconDropdown.item variant="'scroller'"}
 	<li>
 		<ul class="inline-scroller">
 			{call .dropdownItems data="all"}
