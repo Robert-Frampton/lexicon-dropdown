@@ -11,6 +11,7 @@
  * @param items
  * @param? position
  * @param? positionClassOnMenu
+ * @param? toggle
  */
 {template .render}
 	{let $dropdownTrigger kind="html"}
@@ -18,8 +19,6 @@
 	{/let}
 
 	{call Dropdown.render data="all"}
-		{param header: $dropdownTrigger /}
-
 		{param body kind="html"}
 			{call .dropdownItems data="all"}
 				{param items: $items /}
@@ -27,38 +26,33 @@
 		{/param}
 
 		{param elementClasses: $elementClasses ?: 'dropdown' /}
+		{param header: $dropdownTrigger /}
 	{/call}
 {/template}
 
 /**
  *
- * @param? expanded
- * @param? triggerCssClass
- * @param? triggerElement
- * @param? triggerLabel
+ * @param? toggle
+ * @param? trigger
  */
 {template .trigger}
-	{let $triggerAttributes kind="attributes"}
-		aria-expanded="{$expanded}"
-		class="dropdown-toggle{$triggerCssClass ? ' ' + $triggerCssClass : ''}"
-		data-onclick="toggle"
-		href="javascript:;"
-		type="button"
+	{let $buttonClasses kind="text"}
+		dropdown-toggle{$trigger and $trigger.elementClasses ? ' ' + $trigger.elementClasses : ''}
 	{/let}
 
-	{let $triggerContent kind="html"}
-		{$triggerLabel}<span class="icon-caret-down"></span>
-	{/let}
+	{call LexiconButton.render data="all"}
+		{param elementClasses: $buttonClasses /}
+		{param events: ['click': $toggle] /}
+		{param href: $trigger and $trigger.anchor ? 'javascript:;' : null /}
 
-	{if $triggerElement == 'a'}
-		<a {$triggerAttributes}>
-			{$triggerContent}
-		</a>
-	{else}
-		<button {$triggerAttributes}>
-			{$triggerContent}
-		</button>
-	{/if}
+		{param label kind="html"}
+			{if $trigger and $trigger.label}
+				{$trigger.label + ' '}
+			{/if}
+
+			<span class="icon-caret-down"></span>
+		{/param}
+	{/call}
 {/template}
 
 /**

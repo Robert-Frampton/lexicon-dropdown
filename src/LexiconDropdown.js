@@ -5,6 +5,8 @@ import Soy from 'metal-soy';
 
 import templates from './LexiconDropdown.soy';
 
+import LexiconButton from 'lexicon-button';
+
 /**
  * Implementation of the Lexicon Dropdown Piece
  *
@@ -19,11 +21,44 @@ class LexiconDropdown extends MetalDropdown {}
  */
 LexiconDropdown.STATE = {
 	/**
-	 * CSS class (or list of classes) for styling the icon's main container
-	 * @type {array}
+	 * @typedef Item
+	 * @type {object}
+	 * @property {?boolean} active - Whether or not the item will be rendered as active.
+	 * @property {?boolean} disabled - Whether or not the item will be rendered as disabled.
+	 * @property {?string} href - href for the link.
+	 * @property {!string} label - Text to display for the item.
+	 * @property {?string} type - determines the type of item.
+	 */
+
+	/**
+	 * Items to be displayed in dropdown menu.
+	 * @default []
+	 * @instance
+	 * @memberof LexiconDropdown
+	 * @type {Array.<Item>}
 	 */
 	items: {
-		validator: core.isArray
+		validator: core.isArray,
+		value: []
+	},
+
+	/**
+	 * @typedef Trigger
+	 * @type {object}
+	 * @property {?boolean} anchor - determines if the trigger is rendered as an anchor.
+	 * @property {?string} elementClasses - classes that are added to the item element.
+	 * @property {?string} label - Text to display for the trigger.
+	 */
+
+	/**
+	 * Trigger configuration such as anchor, label, and elementClasses.
+	 * @default undefined
+	 * @instance
+	 * @memberof LexiconDropdown
+	 * @type {<Trigger>}
+	 */
+	trigger: {
+		validator: core.isObject
 	}
 };
 

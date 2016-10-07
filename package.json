@@ -27,6 +27,7 @@
     "metal"
   ],
   "dependencies": {
+    "lexicon-button": "^0.0.3",
     "lexicon-ux": "^1.0.0",
     "metal-dropdown": "^2.0.0",
     "metal-soy": "^2.0.0"
