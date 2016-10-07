@@ -2,10 +2,9 @@ import Component from 'metal-component';
 import core from 'metal';
 import MetalDropdown from 'metal-dropdown';
 import Soy from 'metal-soy';
-
 import templates from './LexiconDropdown.soy';
 
-import LexiconButton from 'lexicon-button';
+import LexiconButton from 'lexicon-button'; // jshint ignore:line
 
 /**
  * Implementation of the Lexicon Dropdown Piece

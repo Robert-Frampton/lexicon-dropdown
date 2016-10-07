@@ -6,13 +6,46 @@
 
 		<link rel="stylesheet" href="../node_modules/lexicon-ux/build/css/atlas-font-awesome.css">
 		<script src="../build/globals/dropdown.js"></script>
+
+		<style>
+			body {
+				padding: 10px;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Lexicon Dropdown Component</h1>
 
+		<h2>Default</h2>
+		<div id="default"></div>
+
+		<h2>Trigger</h2>
+		<div id="trigger"></div>
+
+		<h2>Item Types</h2>
+		<div id="itemTypes"></div>
+
+		<h2>Scroller</h2>
+		<div id="scroller"></div>
+
 		<script type="text/javascript">
-			new metal.LexiconDropdown({items:[]});
-			window.myDropdown = new metal.LexiconDropdown({
+			// Default
+			new metal.LexiconDropdown({
+				items:[]
+			}, '#default');
+
+			// Tigger
+			new metal.LexiconDropdown({
+				items:[],
+				trigger: {
+					anchor: true,
+					elementClasses: 'element-class',
+					label: 'Trigger Label'
+				}
+			}, '#trigger');
+
+			// Item Types
+			new metal.LexiconDropdown({
 				items: [{
 					label: 'Order by:',
 					type: 'header'
@@ -41,8 +74,9 @@
 					label: 'Status',
 					type: 'link'
 				}]
-			});
+			}, '#itemTypes');
 
+			// Scroller
 			new metal.LexiconDropdown({
 				items: [{
 					label: 'Dropdown Header',
@@ -86,7 +120,7 @@
 					label: 'Scope',
 					type: 'link'
 				}]
-			});
+			}, '#scroller');
 		</script>
 	</body>
 </html>
