@@ -54,7 +54,7 @@ LexiconDropdown.STATE = {
 	 * @default undefined
 	 * @instance
 	 * @memberof LexiconDropdown
-	 * @type {<Trigger>}
+	 * @type {Object.<Trigger>}
 	 */
 	trigger: {
 		validator: core.isObject
